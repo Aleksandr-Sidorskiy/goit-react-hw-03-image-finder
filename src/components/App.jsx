@@ -2,6 +2,7 @@ import { Component } from 'react';
 import fetchImages from './services/images-api';
 import Searchbar from './Searchbar/Searchbar';
 import ImageGallery from './ImageGallery/ImageGallery';
+import Loader from './Loader';
 
 
 class App extends Component{
@@ -17,6 +18,7 @@ class App extends Component{
      currentImageUrl: null,
     currentImageDescription: null,
   };
+  
 
   componentDidUpdate(prevProps, prevState) {
     const { query, page } = this.state;
@@ -67,10 +69,15 @@ class App extends Component{
         })
             .catch(error => this.setState({ error }))
             .finally(() => this.setState(({ isLoading }) => ({ isLoading: !isLoading }))
-            );
-          }
-        }
+            )
+    };
+  };
 
+  // Loader = ({state}) => {
+  //   if (this.setState !== this.prevState) {
+  //     this.setState(({ isLoading }) => ({ isLoading: !isLoading }));
+  //   }
+  // }
 
   handeleFormSubmit = query => {
     this.setState({ query }); 
@@ -118,8 +125,8 @@ class App extends Component{
       <>
         
         <Searchbar onSubmit={this.handeleFormSubmit } />
+        {isLoading &&  <Loader/>}
         {images && <ImageGallery images={images} openModal={ openModal} />}
-        {/* {isLoading &&  <Loader/>} */}
      </>
    )
   };
