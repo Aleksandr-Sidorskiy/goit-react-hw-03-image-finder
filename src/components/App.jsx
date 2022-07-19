@@ -2,7 +2,7 @@ import { Component } from 'react';
 import fetchImages from './services/images-api';
 import Searchbar from './Searchbar/Searchbar';
 import ImageGallery from './ImageGallery/ImageGallery';
-import Loa
+
 
 class App extends Component{
   state = {
@@ -119,7 +119,7 @@ class App extends Component{
         
         <Searchbar onSubmit={this.handeleFormSubmit } />
         {images && <ImageGallery images={images} openModal={ openModal} />}
-        {isLoading &&  <Loader/>}
+        {/* {isLoading &&  <Loader/>} */}
      </>
    )
   };
