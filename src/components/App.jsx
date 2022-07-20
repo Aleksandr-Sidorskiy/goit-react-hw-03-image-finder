@@ -3,6 +3,8 @@ import fetchImages from './services/images-api';
 import Searchbar from './Searchbar/Searchbar';
 import ImageGallery from './ImageGallery/ImageGallery';
 import Loader from './Loader';
+import Button from './Button';
+
 
 
 class App extends Component{
@@ -124,9 +126,15 @@ class App extends Component{
     return (
       <>
         
-        <Searchbar onSubmit={this.handeleFormSubmit } />
-        {isLoading &&  <Loader/>}
-        {images && <ImageGallery images={images} openModal={ openModal} />}
+        <Searchbar onSubmit={this.handeleFormSubmit} />
+        
+        {isLoading && <Loader />}
+        
+        {images && <ImageGallery images={images} openModal={openModal} />}
+        
+        {imagesOnPage >= 12 && imagesOnPage < totalImages && (
+          <Button onNextFetch={onNextFetch} />
+        )}
      </>
    )
   };

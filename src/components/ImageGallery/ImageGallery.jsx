@@ -13,7 +13,7 @@ function ImageGallery({images, openModal}) {
                     largeImage={largeImage}
                     openModal={openModal}
                 />
-            ))};
+            ))}
         </ul>
     );
 };

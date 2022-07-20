@@ -6,7 +6,7 @@ function ImageGalleryItem({smallImage, description, largeImage, openModal}) {
         <li className={css.ImageGalleryItem} onClick={openModal}>
             <img src={smallImage} alt={description} data-large={largeImage} />
         </li>
-    );
+    )
 };
 
 ImageGalleryItem.propTypes = {
