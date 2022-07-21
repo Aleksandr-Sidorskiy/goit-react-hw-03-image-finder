@@ -122,7 +122,6 @@ class App extends Component{
     
     return (
       <>
-        {/* <button type='button' onClick={toggleModal}>Open Modal</button> */}
         {showModal && <Modal
         onClose={toggleModal}
             currentImageUrl={currentImageUrl}
