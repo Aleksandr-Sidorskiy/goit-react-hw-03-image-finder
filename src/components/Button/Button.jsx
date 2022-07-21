@@ -10,6 +10,9 @@ function Button({onNextFetch}) {
     );
 };
 
+
+Button.propTypes = {
+    onNextFetch: PropTypes.func.isRequired,
+};
+
 export default Button;
-
-

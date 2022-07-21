@@ -4,6 +4,7 @@ import Searchbar from './Searchbar/Searchbar';
 import ImageGallery from './ImageGallery/ImageGallery';
 import Loader from './Loader';
 import Button from './Button';
+import Modal from './Modal/Modal';
 
 
 
@@ -75,11 +76,7 @@ class App extends Component{
     };
   };
 
-  // Loader = ({state}) => {
-  //   if (this.setState !== this.prevState) {
-  //     this.setState(({ isLoading }) => ({ isLoading: !isLoading }));
-  //   }
-  // }
+
 
   handeleFormSubmit = query => {
     this.setState({ query }); 
@@ -125,8 +122,13 @@ class App extends Component{
     
     return (
       <>
-        
-        <Searchbar onSubmit={this.handeleFormSubmit} />
+        {/* <button type='button' onClick={toggleModal}>Open Modal</button> */}
+        {showModal && <Modal
+        onClose={toggleModal}
+            currentImageUrl={currentImageUrl}
+          currentImageDescription={currentImageDescription} />
+        }
+        <Searchbar onSubmit={handeleFormSubmit} />
         
         {isLoading && <Loader />}
         
