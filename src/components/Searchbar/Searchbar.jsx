@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import css from './Searchbar.module.css';
 import { AiOutlineSearch } from "react-icons/ai";
+import PropTypes from 'prop-types';
 
 class Searchbar extends Component{
   state = {
@@ -16,6 +17,7 @@ class Searchbar extends Component{
 
     this.props.onSubmit(this.state.pictureName);
     this.setState({ pictureName: '' });
+    
   };
 
     render() {
@@ -44,5 +46,9 @@ class Searchbar extends Component{
         );
     };
 };
+
+Searchbar.propType = {
+  props:PropTypes.func.isRequired,
+}
 
 export default Searchbar;
